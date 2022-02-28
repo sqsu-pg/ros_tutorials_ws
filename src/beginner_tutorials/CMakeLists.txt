@@ -3,7 +3,9 @@ project(beginner_tutorials)
 
 ## Compile as C++11, supported in ROS Kinetic and newer
 add_compile_options(-std=c++11)
-set(OpenCV_DIR "/opt/ros/kinetic/share/OpenCV-3.3.1-dev")
+set(OpenCV_DIR "/usr/local/opencv341/share/OpenCV")
+set(cv_bridge_DIR "/opt/ros/melodic/share/cv_bridge/cmake")
+
 
 ## Find catkin macros and libraries
 ## if COMPONENTS list like find_package(catkin REQUIRED COMPONENTS xyz)
@@ -63,6 +65,7 @@ add_message_files(
   Num.msg
   Img_vec.msg
   my_string.msg
+  StereoImageMaskFlo.msg
 )
 
 ## Generate services in the 'srv' folder
@@ -244,6 +247,16 @@ add_executable(listener_with_mask
 )
 add_dependencies(listener_with_mask ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 target_link_libraries(listener_with_mask
+  ${catkin_LIBRARIES}
+  ${OpenCV_LIBRARIES}
+  ${Boost_LIBRARIES}
+)
+
+add_executable(lis_stereo_mask_flo_split
+  src/lis_stereo_mask_flo_split.cpp
+)
+add_dependencies(lis_stereo_mask_flo_split ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
+target_link_libraries(lis_stereo_mask_flo_split
   ${catkin_LIBRARIES}
   ${OpenCV_LIBRARIES}
   ${Boost_LIBRARIES}
