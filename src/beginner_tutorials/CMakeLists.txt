@@ -2,9 +2,9 @@ cmake_minimum_required(VERSION 3.0.2)
 project(beginner_tutorials)
 
 ## Compile as C++11, supported in ROS Kinetic and newer
-add_compile_options(-std=c++11)
-set(OpenCV_DIR "/usr/local/opencv341/share/OpenCV")
-set(cv_bridge_DIR "/opt/ros/melodic/share/cv_bridge/cmake")
+add_compile_options(-std=c++14)
+set(OpenCV_DIR "/usr/lib/x86_64-linux-gnu/cmake/opencv4")
+# set(cv_bridge_DIR "/opt/ros/melodic/share/cv_bridge/cmake")
 
 
 ## Find catkin macros and libraries
