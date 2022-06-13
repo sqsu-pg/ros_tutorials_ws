@@ -1,6 +1,8 @@
 #!usr/bin/env python 
 # -*- coding: utf-8 -*-
 
+# python3 rosbag_to_kitti.py --img0_topic=/camera/infra1/image_rect_raw --img1_topic=/camera/infra2/image_rect_raw --imu_topic=/camera/imu --img_color=/camera/color/image_raw --data_set_path=/home/nuc02/data_sets/indoor_1
+
 import rospy
 from sensor_msgs.msg import Image
 from sensor_msgs.msg import Imu
